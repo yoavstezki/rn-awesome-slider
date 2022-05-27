@@ -1,0 +1,51 @@
+{
+  "name": "rn-awesome-slider",
+  "version": "1.0.0",
+  "description": "A awesome sliders for Weight and Height",
+  "main": "dist/module/index.js",
+  "react-native": "dist/module/index.js",
+  "types": "dist/typescript/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./",
+    "prepare": "bob build"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "sliders",
+    "weight slider",
+    "height slider"
+  ],
+  "repository": "https://github.com/yoavstezki/rn-awesome-sliders.git",
+  "author": "Yoav Stezki",
+  "license": "MIT",
+  "dependencies": {
+    "lottie-react-native": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@react-native-community/bob": "^0.16.2",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@types/react-native": "^0.67.7",
+    "eslint": "^7.32.0",
+    "typescript": "~3.9.5"
+  },
+  "peerDependencies": {
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "~0.68.2"
+  },
+  "@react-native-community/bob": {
+    "source": "lib",
+    "output": "dist",
+    "targets": [
+      "module",
+      "typescript"
+    ]
+  }
+}

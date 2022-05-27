@@ -1,0 +1,26 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "~45.0.3",
+    "expo-status-bar": "~1.3.0",
+    "lottie-react-native": "^5.1.2",
+    "react": "~17.0.2",
+    "react-dom": "~17.0.2",
+    "react-native": "0.68.1",
+    "rn-awesome-slider": "/Users/yoavstezki/dev/rn-awesome-slider/rn-awesome-slider-1.0.0.tgz"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@types/react": "~17.0.21",
+    "@types/react-native": "~0.62.13",
+    "typescript": "~3.9.5"
+  },
+  "private": true
+}
