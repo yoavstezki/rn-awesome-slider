@@ -1,6 +1,6 @@
 {
   "name": "rn-awesome-slider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A awesome sliders for Weight and Height",
   "main": "dist/module/index.js",
   "react-native": "dist/module/index.js",
