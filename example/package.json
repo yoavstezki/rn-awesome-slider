@@ -14,7 +14,7 @@
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
     "react-native": "0.68.1",
-    "rn-awesome-slider": "/Users/yoavstezki/dev/rn-awesome-slider/rn-awesome-slider-1.0.0.tgz"
+    "rn-awesome-slider": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

@@ -3,11 +3,11 @@
 ## Installation
 
 ```
-yarn add rn-awesome-sliders
+yarn add rn-awesome-slider
 
 # or
 
-npm install rn-awesome-sliders
+npm install rn-awesome-slider
 ```
 
 ## Height Slider
@@ -22,7 +22,7 @@ A Height slider is a design component that enables the selection of hHeight betw
 | Property | Description | Type | 
 | -------- | -------- | ---- |
 | `gender` | Gender of the lottie to display <br/>Default `male`.   | [Gender](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L1) | No | |
-| `measureData.range` | The measure range. <br/>Default `from: 40`, `to: 340`.   | [Range](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L9) | No | |
+| `measureData.range` | The measure range. <br/>Default `from: 40`, `to: 240`.   | [Range](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L9) | No | |
 | `measureData.step`| The measure step. <br/>Default `10`  | number | No | |
 | `measureData.sectionSize` | The number of lines in each section. <br/>Default `6` | number | No | |
 | `measureData.initialValue` |Initial maximum value of the slider. <br/>Half of the `range.to`.| number | No | |
