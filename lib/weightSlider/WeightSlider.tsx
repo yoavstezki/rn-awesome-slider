@@ -55,7 +55,7 @@ const WeightSlider: React.FC<Props> = ({
   } = measureData;
 
   const {
-    hint = 'Cm',
+    hint = 'Kg',
     color = WEIGHT_DEFAULT_COLOR,
     fractionDigits = WEIGHT_FRACTION_DIGITS,
     placeholder = range.from.toString(),

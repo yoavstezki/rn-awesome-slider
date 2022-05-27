@@ -1,83 +1,126 @@
-# React Native Interactive Section List
-
-Interactive Section List is a scrollable tab bar-controlled SectionList.
-
-![preview](https://github.com/hongkouHenk/react-native-expo-interactive-section-list/blob/master/preview.gif)
-
-## Features
-
-- SectionList that scrolls to tab bar button selected sections.
-- Tab bar button controls that follow along with SectionList scroll actions.
-- Compatible with Expo.
-- Written in TypeScript.
+# React Native Awesome Sliders
 
 ## Installation
 
-```bash
-yarn add react-native-expo-interactive-section-list
+```
+yarn add rn-awesome-sliders
 
 # or
 
-npm install react-native-expo-interactive-section-list
+npm install rn-awesome-sliders
 ```
+
+## Height Slider
+
+A Height slider is a design component that enables the selection of hHeight between custom ranges.
+<br/>As a rule of thumb, the component height equals the screen height multiplied by 0.6
+
+![preview](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/preview-height.gif)
+
+## Properties
+
+| Property | Description | Type | 
+| -------- | -------- | ---- |
+| `gender` | Gender of the lottie to display <br/>Default `male`.   | [Gender](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L1) | No | |
+| `measureData.range` | The measure range. <br/>Default `from: 40`, `to: 340`.   | [Range](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L9) | No | |
+| `measureData.step`| The measure step. <br/>Default `10`  | number | No | |
+| `measureData.sectionSize` | The number of lines in each section. <br/>Default `6` | number | No | |
+| `measureData.initialValue` |Initial maximum value of the slider. <br/>Half of the `range.to`.| number | No | |
+| `labelData.hint` | The hint text below the label.<br/>Default value is `Kg`. | string | No | |
+| `labelData.color` | The color of the label text <br/>Default value is `#8503e3`. | [color](https://reactnative.dev/docs/colors) | No | |
+| `labelData.fractionDigits` | The digits fraction to display on the text label <br/>Default value is `0`. | number | No | |
+| `labelData.placeholder` | The text to display on the text label when slider on minimum value. <br/>Default value is `range.from`. | number | No | |
+| `cursorData.color` | The color of the cursor<br/>Default value is `#8503e3`. | [color](https://reactnative.dev/docs/colors) | No | |
+| `dividerData.color` | The color of the divider<br/>Default value is `#bababa`. | [color](https://reactnative.dev/docs/colors) | No | |
+| `onSlidingStart` | Callback that is called when the user picks up the slider.<br/>The initial value is passed as an argument to the callback handler. | function | No | |
+| `onSlidingEnd` | Callback that is called when the user releases the slider, regardless if the value has changed.<br/>The current value is passed as an argument to the callback handler. | function | No | |
+| `onValueChange` | Callback continuously called while the user is dragging the slider. | function | No | |
 
 ## Usage
 
-```python
-import React, { useState, useEffect} from 'react';
+```
+import React from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import { WeightSlider } from 'rn-awesome-slider';
 
-import InteractiveSectionList from 'react-native-expo-interactive-section-list';
-
-import MyItem from './MyItem';
-import MySectionHeader from './MySectionHeader';
-
-const searchIcon = require('../../assets/search.png');
-
-const DATA = [
-  {
-    title: "Main dishes",
-    data: ["Pizza", "Burger", "Risotto"]
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 44,
+    paddingBottom: Platform.OS === 'ios' ? 44 : 12,
+    backgroundColor: '#ffffff',
   },
-  {
-    title: "Sides",
-    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-  },
-  {
-    title: "Drinks",
-    data: ["Water", "Coke", "Beer"]
-  },
-  {
-    title: "Desserts",
-    data: ["Cheese Cake", "Ice Cream"]
-  }
-];
+  contentContainerStyle: {},
+});
 
-const Home = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    setData(DATA);
-  }, []);
-
+export default function App() {
   return (
-    <InteractiveSectionList
-      data={data} // REQUIRED: SECTIONLIST DATA
-      renderItem={({ item }) => <MyItem item={item} />} // REQUIRED: SECTIONLIST ITEM COMPONENT
-      itemHeight={100}  // REQUIRED: USED TO IMPROVE PERFORMANCE
-      renderSectionHeader={({ section }) => <MySectionHeader section={section} />} // OPTIONAL
-      tabbarItemWidth={100}  // OPTIONAL
-      tabbarItemSpaceBetween={8}  // OPTIONAL
-      tabbarItemFontSize={16}  // OPTIONAL
-      tabbarItemActiveColor='#FED41A'  // OPTIONAL
-      tabbarItemInactiveColor='#FFF'  // OPTIONAL
-      tabbarItemTitleActiveColor='#000' // OPTIONAL
-      tabbarItemTitleInactiveColor='#EDEDED' // OPTIONAL
-      tabbarItemHeight={40}  // OPTIONAL
-      tabbarIcon={searchIcon}  // OPTIONAL
-    />
-  )};
+    <View style={styles.container}>
+      <WeightSlider
+        measureData={{ range: { from: 40, to: 240 }, step: 20, sectionSize: 6, initialValue: 120 }}
+        labelData={{ color: '#EE6000FF' }}
+        cursorData={{ color: '#EE6000FF' }}
+      />
+    </View>
+  );
+}
 
-export default Home;
+```
+
+## Weight Slider
+
+A weight slider is a design component that enables the selection of weight between custom ranges.
+
+![preview](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/preview-weight.gif)
+
+## Properties
+
+| Property | Description | Type | 
+| -------- | -------- | ---- |
+| `gender` | Gender of the lottie to display <br/>Default `male`.   | [Gender](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L1) | No | |
+| `measureData.range` | The measure range. <br/>Default `from: 0`, `to: 160`.   | [Range](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/lib/types/index.ts#L9) | No | |
+| `measureData.step`| The measure step. <br/>Default `10`  | number | No | |
+| `measureData.sectionSize` | The number of lines in each section. <br/>Default `10` | number | No | |
+| `measureData.initialValue` |Initial maximum value of the slider. <br/>Half of the `range.to`.| number | No | |
+| `labelData.hint` | The hint text below the label.<br/>Default value is `Cm`. | string | No | |
+| `labelData.color` | The color of the label text <br/>Default value is `#8503e3`. | [color](https://reactnative.dev/docs/colors) | No | |
+| `labelData.fractionDigits` | The digits fraction to display on the text label <br/>Default value is `0`. | number | No | |
+| `labelData.placeholder` | The text to display on the text label when slider on minimum value. <br/>Default value is `range.from`. | number | No | |
+| `cursorData.color` | The color of the cursor<br/>Default value is `#8503e3`. | [color](https://reactnative.dev/docs/colors) | No | |
+| `onSlidingStart` | Callback that is called when the user picks up the slider.<br/>The initial value is passed as an argument to the callback handler. | function | No | |
+| `onSlidingEnd` | Callback that is called when the user releases the slider, regardless if the value has changed.<br/>The current value is passed as an argument to the callback handler. | function | No | |
+| `onValueChange` | Callback continuously called while the user is dragging the slider. | function | No | |
+
+## Usage
+
+```
+import React from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import { HeightSlider } from 'rn-awesome-slider';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 44,
+    paddingBottom: Platform.OS === 'ios' ? 44 : 12,
+    backgroundColor: '#ffffff',
+  },
+  contentContainerStyle: {},
+});
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <HeightSlider
+        gender={'female'}
+        measureData={{ range: { from: 0, to: 160 }, step: 10, sectionSize: 10, initialValue: 65 }}
+        labelData={{ placeholder: '00' }}
+        dividerData={{ color: 'blue' }}
+        cursorData={{ color: 'blue' }}
+      />
+    </View>
+  );
+}
 ```
 
 ## License
