@@ -12,7 +12,7 @@ npm install rn-awesome-slider
 
 ## Height Slider
 
-A Height slider is a design component that enables the selection of hHeight between custom ranges.
+A Height slider is a design component that enables the selection of height between custom ranges.
 <br/>As a rule of thumb, the component height equals the screen height multiplied by 0.6
 
 ![preview](https://github.com/yoavstezki/rn-awesome-sliders/blob/master/preview-height.gif)
@@ -38,7 +38,7 @@ A Height slider is a design component that enables the selection of hHeight betw
 
 ## Usage
 
-```
+```javascript
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { WeightSlider } from 'rn-awesome-slider';
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 44 : 12,
     backgroundColor: '#ffffff',
   },
-  contentContainerStyle: {},
 });
 
 export default function App() {
@@ -93,7 +92,7 @@ A weight slider is a design component that enables the selection of weight betwe
 
 ## Usage
 
-```
+```javascript
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { HeightSlider } from 'rn-awesome-slider';
@@ -105,7 +104,6 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 44 : 12,
     backgroundColor: '#ffffff',
   },
-  contentContainerStyle: {},
 });
 
 export default function App() {
