@@ -1,6 +1,6 @@
 {
   "name": "rn-awesome-slider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A awesome sliders for Weight and Height",
   "main": "dist/module/index.js",
   "react-native": "dist/module/index.js",
@@ -25,7 +25,6 @@
   "author": "Yoav Stezki",
   "license": "MIT",
   "dependencies": {
-    "lottie-react-native": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
@@ -33,9 +32,11 @@
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/react-native": "^0.67.7",
     "eslint": "^7.32.0",
+    "lottie-react-native": "^5.1.3",
     "typescript": "~3.9.5"
   },
   "peerDependencies": {
+    "lottie-react-native": "~5.1.2",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "~0.68.2"

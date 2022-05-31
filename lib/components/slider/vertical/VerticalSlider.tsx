@@ -4,6 +4,7 @@ import LabelContainer from '../../sliderInput/LabelContainer';
 import Label from '../../sliderInput/Label';
 import { HEIGHT_DEFAULT_CONTENT_FACTOR } from '../../../constants';
 import { CursorData, DividerData, LabelData, Range } from '../../../types';
+import { isAndroid, isAndroidAndRTL } from '../../../utils';
 
 type Props = {
   range: Range;
@@ -24,15 +25,18 @@ type Styles = {
   cursorColor: string;
 };
 
-const createStyles = ({ height, dividerColor, cursorColor }: Styles) =>
-  StyleSheet.create({
+const createStyles = ({ height, dividerColor, cursorColor }: Styles) => {
+  const flexDirection = isAndroidAndRTL() ? 'row-reverse' : 'row';
+  const factor = isAndroid() ? -2 : 5;
+
+  return StyleSheet.create({
     container: {
-      paddingVertical: Math.round(height * HEIGHT_DEFAULT_CONTENT_FACTOR + 4),
+      paddingVertical: Math.round(height * HEIGHT_DEFAULT_CONTENT_FACTOR + factor),
     },
     content: {
       flex: 1,
       justifyContent: 'space-between',
-      flexDirection: 'row',
+      flexDirection: flexDirection,
       alignItems: 'center',
     },
     divider: {
@@ -46,6 +50,7 @@ const createStyles = ({ height, dividerColor, cursorColor }: Styles) =>
       backgroundColor: cursorColor,
     },
   });
+};
 
 const VerticalSlider = forwardRef<ScrollView, Props>(
   (
