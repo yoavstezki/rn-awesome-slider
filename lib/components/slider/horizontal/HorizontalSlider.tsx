@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { ScrollView, ScrollViewProps, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Stroke from '../Stoke';
-import { createMeasureData } from '../../../utils/functions';
+import { createMeasureData, isAndroidAndRTL } from '../../../utils';
 import { CursorData, MeasureData } from '../../../types';
 
 type Props = {
@@ -19,10 +19,11 @@ type Styles = {
   fontScale: number;
 };
 
-const createStyles = ({ cursorColor, width, fontScale }: Styles) =>
-  StyleSheet.create({
+const createStyles = ({ cursorColor, width, fontScale }: Styles) => {
+  return StyleSheet.create({
     contentContainer: {
       paddingHorizontal: width / 2 - 3.5,
+      ...(isAndroidAndRTL() && { flexDirection: 'row-reverse' }),
     },
     scrollView: {
       flexDirection: 'row',
@@ -37,6 +38,7 @@ const createStyles = ({ cursorColor, width, fontScale }: Styles) =>
       backgroundColor: cursorColor,
     },
   });
+};
 
 const HorizontalSlider = forwardRef<ScrollView, Props>(
   (

@@ -6,7 +6,7 @@ import Lottie from '../components/lottie/Lottie';
 import Label from '../components/sliderInput/Label';
 import HorizontalSlider from '../components/slider/horizontal/HorizontalSlider';
 import useWeightSlider from '../hooks/useWeightSlider';
-import { noop } from '../utils/functions';
+import { noop } from '../utils';
 import {
   WEIGHT_DEFAULT_COLOR,
   WEIGHT_FRACTION_DIGITS,

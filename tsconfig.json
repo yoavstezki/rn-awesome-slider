@@ -6,7 +6,9 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true,
+
   },
   "exclude": ["example"],
   "include": [

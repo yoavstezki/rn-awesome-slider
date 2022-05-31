@@ -9,7 +9,7 @@ import {
   HEIGHT_MAX_VALUE,
   HEIGHT_MIN_VALUE,
 } from '../constants';
-import { getFixedValue, noop, normalize } from '../utils/functions';
+import { getFixedValue, noop, normalize } from '../utils';
 import { Colors } from '../constants/colors';
 import VerticalSlider from '../components/slider/vertical/VerticalSlider';
 import useHeightSlider from '../hooks/useHeightSlider';

@@ -1,11 +1,14 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { isAndroidAndRTL } from '../../utils';
 
 type Styles = {
   fontScale: number;
 };
 
 const createStyles = ({ fontScale }: Styles) => {
+  const direction = isAndroidAndRTL() ? 'left' : 'right';
+
   return StyleSheet.create({
     container: {
       alignSelf: 'center',
@@ -17,7 +20,7 @@ const createStyles = ({ fontScale }: Styles) => {
       position: 'absolute',
       bottom: 0,
       textAlign: 'left',
-      right: -40,
+      [direction]: -40,
     },
     hint: {
       fontSize: 10 * fontScale,

@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { MeasureKind, Size } from '../../types';
 import { Colors } from '../../constants/colors';
+import { isAndroidAndRTL } from '../../utils';
 
 const sizeToMeasurement: Record<Size, number> = {
   small: 7,
@@ -19,15 +20,23 @@ type Props = {
 type StyleProps = {
   kind: MeasureKind;
   size: Size;
+  fontScale: number;
 };
 
-const createStyles = ({ kind, size }: StyleProps) => {
+const createStyles = ({ kind, size, fontScale }: StyleProps) => {
   const isVertical = kind === 'vertical';
+
+  const androidAndRTL = isAndroidAndRTL();
+  const alignSelf = androidAndRTL ? 'flex-start' : 'flex-end';
+  const flexDirection = androidAndRTL ? 'row-reverse' : 'row';
+
   return StyleSheet.create({
     container: {
+      alignItems: 'center',
       flex: 1,
       ...(isVertical && {
-        alignSelf: 'flex-end',
+        flexDirection: flexDirection,
+        alignSelf: alignSelf,
         justifyContent: 'space-between',
       }),
     },
@@ -37,21 +46,23 @@ const createStyles = ({ kind, size }: StyleProps) => {
       marginHorizontal: isVertical ? 0 : 3,
       backgroundColor: Colors.GRAY,
     },
-    label: {
-      position: 'absolute',
-      flex: 1,
-      alignSelf: 'center',
-      top: isVertical ? '-80%' : '60%',
-      ...(isVertical && { right: '140%' }),
-    },
-    text: {
+    textVertical: {
+      minHeight: fontScale * 18,
       textAlign: 'center',
-      minWidth: 30,
+      minWidth: '10%',
+    },
+    textHorizontal: {
+      position: 'absolute',
+      alignSelf: 'center',
+      top: '60%',
+      textAlign: 'center',
+      minWidth: fontScale * 30,
     },
   });
 };
 
 const Stroke: FC<Props> = ({ kind = 'vertical', value, index, sectionSize }) => {
+  const { fontScale } = useWindowDimensions();
   const data = useMemo(() => {
     let size: Size = 'small';
     if (index % sectionSize === 0) {
@@ -63,14 +74,16 @@ const Stroke: FC<Props> = ({ kind = 'vertical', value, index, sectionSize }) => 
     return { size, index };
   }, [index, sectionSize]);
 
-  const styles = createStyles({ ...data, kind });
+  const styles = createStyles({ ...data, kind, fontScale });
 
   return (
     <View style={styles.container}>
+      {data.size === 'large' && (
+        <Text style={[kind === 'vertical' ? styles.textVertical : styles.textHorizontal]}>
+          {value}
+        </Text>
+      )}
       <View style={styles.stroke} />
-      <View style={styles.label}>
-        {data.size === 'large' && <Text style={styles.text}>{value}</Text>}
-      </View>
     </View>
   );
 };
